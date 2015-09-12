@@ -6,10 +6,7 @@ filter:
 
 filter:
   excluded_paths:
-    - tests/*
-    - spec/*
-    - unit/*
-    - src/Stefanius/QuickSniffer/Tests/*
+    - src/Stefanius/QuickSniffer/Tests/Inspections/files/*
 
 before_commands:
   - 'composer install --no-interaction --no-scripts'

@@ -16,7 +16,7 @@ class DoubleWhiteLineInspection extends AbstractInspection
         foreach ($lines as $key => $line) {
             if ($key < count($lines)) {
                 if (strlen(trim($lines[$key])) === 0 && strlen(trim($lines[$key + 1])) === 0) {
-                    $this->error(sprintf($this->errorMessage, $filename, $key));
+                    $this->error(sprintf($this->errorMessage, $filename, $key + 1));
 
                     return false;
                 }

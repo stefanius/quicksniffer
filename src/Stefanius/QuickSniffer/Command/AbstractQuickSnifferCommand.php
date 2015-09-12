@@ -27,6 +27,8 @@ abstract class AbstractQuickSnifferCommand extends Command
         foreach ($result as $key => $value) {
             if (strlen(trim($value)) < 1 || empty($value) ) {
                 unset($result[$key]);
+            } elseif (strpos($value, 'Stefanius/QuickSniffer/Tests') !== false) {
+                unset($result[$key]);
             } else {
                 $result[$key] = $this->combinePath($rootpath, $result[$key]);
             }

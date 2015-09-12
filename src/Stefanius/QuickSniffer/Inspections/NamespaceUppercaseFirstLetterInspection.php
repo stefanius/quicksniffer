@@ -8,6 +8,10 @@ class NamespaceUppercaseFirstLetterInspection extends AbstractInspection
 
     public function passed($filename)
     {
+        if (!$this->matchedFileType($filename, [$this::PHP_FILE])) {
+            return true;
+        }
+
         $result = true;
 
         $lines = file($filename);

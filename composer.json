@@ -16,7 +16,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Stefanius\\QuickSniffer\\": "src/"
+            "Stefanius\\QuickSniffer\\": "src/Stefanius/QuickSniffer/"
         }
-    }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Stefanius\\QuickSniffer\\Tests\\": "src/Stefanius/QuickSniffer/Tests/"
+        }
+    },
+    "bin": ["bin/quicksniffer"]
 }

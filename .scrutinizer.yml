@@ -5,11 +5,11 @@ filter:
     - 'src/*'
 
 filter:
-    excluded_paths:
-        - tests/*
-        - spec/*
-        - unit/*
-        - src/Stefanius/QuickSniffer/Tests/*
+  excluded_paths:
+    - tests/*
+    - spec/*
+    - unit/*
+    - src/Stefanius/QuickSniffer/Tests/*
 
 before_commands:
   - 'composer install --no-interaction --no-scripts'

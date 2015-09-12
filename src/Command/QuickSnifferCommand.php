@@ -25,6 +25,7 @@ class QuickSnifferCommand extends AbstractQuickSnifferCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        var_dump($this->getCommittedFiles());
         $inspections = [
             new DoubleWhiteLineInspection(),
             new WhiteLineBeforeAndAfterNamespaceInspection(),

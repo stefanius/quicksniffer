@@ -2,7 +2,7 @@
 
 namespace Stefanius\QuickSniffer\Inspections;
 
-class WhiteLineBeforeAndAfterNamespaceInspection implements InspectionInterface
+class WhiteLineBeforeAndAfterNamespaceInspection extends AbstractInspection
 {
     public function passed($filename)
     {

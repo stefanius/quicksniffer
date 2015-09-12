@@ -2,15 +2,17 @@
 
 namespace Stefanius\QuickSniffer\Inspections;
 
-class NamespaceUppercaseFirstLetterInspection implements InspectionInterface
+class NamespaceUppercaseFirstLetterInspection extends AbstractInspection
 {
+    protected $errorMessage = 'Every element of the namespace must start with an uppercased character. File: "%s". Element: "%s". Full Namespace: "%s"';
+
     public function passed($filename)
     {
         $result = true;
 
         $lines = file($filename);
         $namespace = $this->findNamepace($lines);
-        
+
         if (!$namespace) {
             return true;
         }
@@ -19,6 +21,8 @@ class NamespaceUppercaseFirstLetterInspection implements InspectionInterface
 
         foreach ($elements as $element) {
             if ($element !== ucfirst($element)) {
+                $this->error(sprintf($this->errorMessage, $filename, $element, $namespace));
+
                 $result = false;
             }
         }

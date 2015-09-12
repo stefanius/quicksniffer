@@ -25,15 +25,20 @@ class QuickSnifferCommand extends AbstractQuickSnifferCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        var_dump($this->getCommittedFiles());
+        $files = $this->getCommittedFiles();
+
         $inspections = [
             new DoubleWhiteLineInspection(),
             new WhiteLineBeforeAndAfterNamespaceInspection(),
             new NamespaceUppercaseFirstLetterInspection(),
         ];
 
-        foreach ($inspections as $inspection) {
-            var_dump(get_class($inspection) . '  --  ' . $inspection->passed(__FILE__));
+        foreach ($files as $file) {
+            foreach ($inspections as $inspection) {
+                if (!$inspection->passed($file)) {
+                    $output->writeln($inspection->getMessage());
+                }
+            }
         }
     }
 }

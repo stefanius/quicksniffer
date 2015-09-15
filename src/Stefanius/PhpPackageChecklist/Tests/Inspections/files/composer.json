@@ -1,0 +1,28 @@
+{
+    "name": "stefanius/quicksniffer",
+    "description": "PHP QuickSniffer",
+    "authors": [
+        {
+            "name": "Stephan Grootveld",
+            "email": "sgrootveld@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "fabpot/php-cs-fixer": "~1.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Stefanius\\QuickSniffer\\": "src/Stefanius/QuickSniffer/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Stefanius\\QuickSniffer\\Tests\\": "src/Stefanius/QuickSniffer/Tests/"
+        }
+    },
+    "bin": ["bin/quicksniffer"]
+}

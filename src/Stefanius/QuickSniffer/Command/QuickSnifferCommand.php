@@ -2,6 +2,7 @@
 
 namespace Stefanius\QuickSniffer\Command;
 
+use Stefanius\PhpPackageChecklist\Checklists\CompleteChecklist;
 use Stefanius\QuickSniffer\Inspections\DoubleWhiteLineInspection;
 use Stefanius\QuickSniffer\Inspections\NamespaceUppercaseFirstLetterInspection;
 use Stefanius\QuickSniffer\Inspections\WhiteLineBeforeAndAfterNamespaceInspection;
@@ -26,6 +27,12 @@ class QuickSnifferCommand extends AbstractQuickSnifferCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $files = $this->getCommittedFiles();
+
+        $result = CompleteChecklist::run($output, $files);
+
+        if (!$result) {
+            $output->writeln("Some errors detected. Solve this errors before you can continue.");
+        }
 
         $inspections = [
             new DoubleWhiteLineInspection(),

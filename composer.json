@@ -16,12 +16,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Stefanius\\QuickSniffer\\": "src/Stefanius/QuickSniffer/"
+            "Stefanius\\QuickSniffer\\": "src/Stefanius/QuickSniffer/",
+            "Stefanius\\PhpPackageChecklist\\": "src/Stefanius/PhpPackageChecklist/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Stefanius\\QuickSniffer\\Tests\\": "src/Stefanius/QuickSniffer/Tests/"
+            "Stefanius\\QuickSniffer\\Tests\\": "src/Stefanius/QuickSniffer/Tests/",
+            "Stefanius\\PhpPackageChecklist\\Tests\\": "src/Stefanius/PhpPackageChecklist/Tests/"
         }
     },
     "bin": ["bin/quicksniffer"]

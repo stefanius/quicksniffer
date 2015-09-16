@@ -67,4 +67,23 @@ abstract class AbstractQuickSnifferCommand extends Command
         return $root . '/' . $relative;
     }
 
+    protected function executePhpCsSniffer()
+    {
+        $rootpath = $this->getRootPath();
+
+        $sniffer = false;
+
+        if (file_exists($rootpath . '/bin/quicksniffer')) {
+            $sniffer = $rootpath . '/bin/quicksniffer';
+        } elseif (file_exists($rootpath . '/bin/php-cs-fixer')) {
+            $sniffer = $rootpath . '/bin/php-cs-fixer';
+        }
+
+        $processBuilder = new ProcessBuilder([$sniffer, '--type=php-cs-sniffer']);
+        $process = $processBuilder->getProcess();
+        $process->run();
+        echo $process->getOutput();
+
+        return strlen($process->getOutput()) < 20;
+    }
 }

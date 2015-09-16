@@ -7,12 +7,22 @@ if (file_exists(__DIR__ . '/../../../autoload.php')) {
     require_once(__DIR__ . '/../vendor/autoload.php');
 }
 
-
-
 use Symfony\Component\Console\Application;
 use Stefanius\QuickSniffer\Command\QuickSnifferCommand;
 
-$command = new QuickSnifferCommand();
+$sniffer = false;
+if (isset($argv[1]) && strpos($argv[1], '--type=') !== false) {
+    $sniffer = $argv[1];
+    $sniffer = explode('=', $sniffer);
+    $sniffer = $sniffer[1];
+}
+
+if ($sniffer === 'php-cs-sniffer') {
+    $command = new \Stefanius\PhpCsSniffer\Command\PhpCsSnifferCommand();
+} else {
+    $command = new QuickSnifferCommand();
+}
+
 $console = new Application();
 $console->setDefaultCommand($command->getName());
 $console->add($command);

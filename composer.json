@@ -17,7 +17,8 @@
     "autoload": {
         "psr-4": {
             "Stefanius\\QuickSniffer\\": "src/Stefanius/QuickSniffer/",
-            "Stefanius\\PhpPackageChecklist\\": "src/Stefanius/PhpPackageChecklist/"
+            "Stefanius\\PhpPackageChecklist\\": "src/Stefanius/PhpPackageChecklist/",
+            "Stefanius\\PhpCsSniffer\\": "src/Stefanius/PhpCsSniffer/"
         }
     },
     "autoload-dev": {

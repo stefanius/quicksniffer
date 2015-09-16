@@ -2,6 +2,7 @@
 
 namespace Stefanius\QuickSniffer\Command;
 
+use Stefanius\PhpCsSniffer\Command\PhpCsSnifferCommand;
 use Stefanius\PhpPackageChecklist\Checklists\CompleteChecklist;
 use Stefanius\QuickSniffer\Inspections\DoubleWhiteLineInspection;
 use Stefanius\QuickSniffer\Inspections\NamespaceUppercaseFirstLetterInspection;
@@ -47,5 +48,7 @@ class QuickSnifferCommand extends AbstractQuickSnifferCommand
                 }
             }
         }
+
+        return $this->executePhpCsSniffer();
     }
 }

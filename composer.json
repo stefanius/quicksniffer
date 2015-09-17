@@ -18,7 +18,8 @@
         "psr-4": {
             "Stefanius\\QuickSniffer\\": "src/Stefanius/QuickSniffer/",
             "Stefanius\\PhpPackageChecklist\\": "src/Stefanius/PhpPackageChecklist/",
-            "Stefanius\\PhpCsSniffer\\": "src/Stefanius/PhpCsSniffer/"
+            "Stefanius\\PhpCsSniffer\\": "src/Stefanius/PhpCsSniffer/",
+            "Stefanius\\LocalSnifferSdk\\": "src/Stefanius/LocalSnifferSdk/"
         }
     },
     "autoload-dev": {

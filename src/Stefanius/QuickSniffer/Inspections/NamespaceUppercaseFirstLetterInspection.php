@@ -2,6 +2,8 @@
 
 namespace Stefanius\QuickSniffer\Inspections;
 
+use Stefanius\LocalSnifferSdk\Inspections\AbstractInspection;
+
 class NamespaceUppercaseFirstLetterInspection extends AbstractInspection
 {
     protected $errorMessage = 'Every element of the namespace must start with an uppercased character. File: "%s". Element: "%s". Full Namespace: "%s"';

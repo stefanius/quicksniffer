@@ -1,6 +1,8 @@
 <?php
 
-namespace Stefanius\QuickSniffer\Inspections;
+namespace Stefanius\LocalSnifferSdk\Inspections;
+
+use Stefanius\LocalSnifferSdk\Interfaces\InspectionInterface;
 
 abstract class AbstractInspection implements InspectionInterface
 {
@@ -12,8 +14,12 @@ abstract class AbstractInspection implements InspectionInterface
 
     const LOCK_FILE = "lock";
 
+    const MARKDOWN_FILE = "md";
+
+    const COMPOSER_JSON = "composer.json";
+
     /**
-     * @return mixed
+     * @return string
      */
     public function getMessage()
     {
@@ -50,10 +56,12 @@ abstract class AbstractInspection implements InspectionInterface
             if (strtolower($type) === strtolower($ext)) {
                 return true;
             }
+
+            if (strpos($type, '.') !== false && strpos($filename, $type) !== false) {
+                return true;
+            }
         }
 
         return false;
     }
-
-
 }

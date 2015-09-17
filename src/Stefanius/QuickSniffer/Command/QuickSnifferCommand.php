@@ -28,12 +28,7 @@ class QuickSnifferCommand extends AbstractQuickSnifferCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $files = $this->getCommittedFiles();
-
-        $result = CompleteChecklist::run($output, $files);
-
-        if (!$result) {
-            $output->writeln("Some errors detected. Solve this errors before you can continue.");
-        }
+        $status = true;
 
         $inspections = [
             new DoubleWhiteLineInspection(),
@@ -45,10 +40,29 @@ class QuickSnifferCommand extends AbstractQuickSnifferCommand
             foreach ($inspections as $inspection) {
                 if (!$inspection->passed($file)) {
                     $output->writeln($inspection->getMessage());
+                    $status = false;
                 }
             }
         }
 
-        return $this->executePhpCsSniffer();
+        if (!$status) {
+            $output->writeln("The pre-test has failed. You cannot commit until you solve the above issues.");
+
+            exit(1);
+        }
+
+        $status = CompleteChecklist::run($output, $files);
+
+        if (!$status) {
+            $output->writeln("The package does not match the package checklist. You cannot commit until you solve the above issues.");
+
+            exit(1);
+        }
+
+        $status = $this->executePhpCsSniffer();
+
+        if (!$status) {
+            $output->writeln("The php-cs-sniffer results some errors. In this version it is not required to fix it right away, but be aware that this may change in future releases.");
+        }
     }
 }

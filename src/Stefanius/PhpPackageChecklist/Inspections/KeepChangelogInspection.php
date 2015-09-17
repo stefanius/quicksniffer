@@ -2,6 +2,8 @@
 
 namespace Stefanius\PhpPackageChecklist\Inspections;
 
+use Stefanius\LocalSnifferSdk\Inspections\AbstractInspection;
+
 class KeepChangelogInspection extends AbstractInspection
 {
     public function passed($filename)

@@ -67,7 +67,7 @@ class AutoloaderFriendlyInspection extends AbstractInspection
 
     protected function isSourceCodeInSrcFolder($composerData)
     {
-        return false; //Enable.
+        return true; //Enable.
 
         $sourceFolders = $composerData['autoload']['psr-4'];
 

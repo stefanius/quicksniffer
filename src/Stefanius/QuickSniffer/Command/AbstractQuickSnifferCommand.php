@@ -74,8 +74,8 @@ abstract class AbstractQuickSnifferCommand extends Command
 
         if (file_exists($rootpath . '/bin/quicksniffer')) {
             $sniffer = $rootpath . '/bin/quicksniffer';
-        } elseif (file_exists($rootpath . '/bin/php-cs-fixer')) {
-            $sniffer = $rootpath . '/bin/php-cs-fixer';
+        } elseif (file_exists($rootpath . '/vendor/bin/quicksniffer')) {
+            $sniffer = $rootpath . '/vendor/bin/quicksniffer';
         }
 
         $processBuilder = new ProcessBuilder([$sniffer, '--type=php-cs-sniffer']);

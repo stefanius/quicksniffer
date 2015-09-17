@@ -2,6 +2,7 @@
 
 namespace Stefanius\PhpCsSniffer\Command;
 
+use Stefanius\GitPhony\Actions\GetRootPathAction;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -18,11 +19,9 @@ abstract class AbstractPhpCsSnifferCommand extends Command
      */
     protected function getRootPath()
     {
-        $processBuilder = new ProcessBuilder(['git', 'rev-parse', '--show-toplevel']);
-        $process = $processBuilder->getProcess();
-        $process->run();
+        $action = new GetRootPathAction();
 
-        return trim($process->getOutput());
+        return $action->run();
     }
 
     protected function executePhpCsFixer()

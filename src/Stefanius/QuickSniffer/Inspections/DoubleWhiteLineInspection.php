@@ -2,6 +2,8 @@
 
 namespace Stefanius\QuickSniffer\Inspections;
 
+use Stefanius\LocalSnifferSdk\Inspections\AbstractInspection;
+
 class DoubleWhiteLineInspection extends AbstractInspection
 {
     protected $errorMessage = 'Double white line detected in: "%s". See line: %s';

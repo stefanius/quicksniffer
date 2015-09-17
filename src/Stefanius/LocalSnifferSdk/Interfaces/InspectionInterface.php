@@ -1,6 +1,6 @@
 <?php
 
-namespace Stefanius\QuickSniffer\Inspections;
+namespace Stefanius\LocalSnifferSdk\Interfaces;
 
 interface InspectionInterface
 {

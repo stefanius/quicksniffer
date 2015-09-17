@@ -19,6 +19,7 @@
             "Stefanius\\QuickSniffer\\": "src/Stefanius/QuickSniffer/",
             "Stefanius\\PhpPackageChecklist\\": "src/Stefanius/PhpPackageChecklist/",
             "Stefanius\\PhpCsSniffer\\": "src/Stefanius/PhpCsSniffer/",
+            "Stefanius\\GitPhony\\": "src/Stefanius/GitPhony/",
             "Stefanius\\LocalSnifferSdk\\": "src/Stefanius/LocalSnifferSdk/"
         }
     },
